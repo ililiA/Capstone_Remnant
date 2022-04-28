@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 233735493}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: AttackPoint
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 233735492}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.61, y: 0.92, z: -0.24}
+  m_LocalPosition: {x: 3.28, y: 1.46, z: -0.24}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5567920892025877452}
@@ -409,10 +409,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 5567920892025877451}
   attackPoint: {fileID: 233735493}
-  attackRange: 0.5
   enemyLayers:
     serializedVersion: 2
     m_Bits: 128
+  attackRange: 1.41
+  attackDamage: 40
+  attackRate: 2.8
 --- !u!1 &5567920892558093150
 GameObject:
   m_ObjectHideFlags: 0
@@ -501,7 +503,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5567920893283177454}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.962991, z: -10}
+  m_LocalPosition: {x: -0.00000047683716, y: 1.962991, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5567920891835261964}
@@ -601,7 +603,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5567920893603389505}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.962991, z: -10}
+  m_LocalPosition: {x: -0.00000047683716, y: 1.962991, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5567920893051180671}

@@ -56,9 +56,6 @@ public class PlayerController : MonoBehaviour
             mana = this.GetComponent<PlayerHealth>();
         }
 
-        //manaPotion = this.GetComponent<PlayerHealth>();
-        //healthPotion = this.GetComponent<PlayerHealth>();
-
         save = this.GetComponent<PlayerSaveAndLoad>();
         //this means it's on the same object!!!
         //if script function is on another object you have to find the other object then the script
@@ -90,16 +87,16 @@ public class PlayerController : MonoBehaviour
         */
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        /*
         if(other.gameObject.CompareTag("Enemy"))
         {
-            hp.ChangeHealth(-10);
+            Debug.Log("I'm hurt!"); 
+            hp.ChangeHealth(-20);
             //taking damage
         }
-        */
 
+        /*
         if(other.gameObject.CompareTag("Checkpoint"))
         {
             //call the save function
@@ -120,7 +117,6 @@ public class PlayerController : MonoBehaviour
             UnityEngine.SceneManagement.SceneManager.LoadScene(sceneBuildIndex:0);
             transition.Transition();
         }
-        */
 
         Debug.Log(other.tag);
         if(other.gameObject.CompareTag("Key"))
@@ -144,5 +140,6 @@ public class PlayerController : MonoBehaviour
                 Debug.Log("You need all three keys to unlock the gate!");
             }
         }
+        */
     }
 }
