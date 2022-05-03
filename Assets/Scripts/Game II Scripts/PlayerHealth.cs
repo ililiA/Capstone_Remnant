@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -39,6 +40,26 @@ public class PlayerHealth : MonoBehaviour
             }
         }
     }
+    
+    public void TakeDamage(int damage)
+	{
+		//health -= damage;
+        ChangeHealth(-damage);
+        Debug.Log("ouch");
+
+		//StartCoroutine(DamageAnimation());
+
+		if (health <= 0)
+		{
+			Die();
+		}
+	}
+
+	void Die()
+	{
+        //Destroy(this.gameObject);
+		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+	}
 
     public void ChangeHealth(int byAmount)
     {

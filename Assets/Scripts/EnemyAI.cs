@@ -23,6 +23,13 @@ public class EnemyAI : MonoBehaviour
     public Animator animator;
     bool still = false;
     
+    void Awake()
+    {
+        if(target == null)
+        {
+            target = GameObject.FindWithTag("Player").transform;
+        }
+    }
 
     // Start is called before the first frame update
     void Start()

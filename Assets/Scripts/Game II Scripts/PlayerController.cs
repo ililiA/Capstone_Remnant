@@ -27,17 +27,11 @@ public class PlayerController : MonoBehaviour
     */
 
     private PlayerSaveAndLoad save;
-    public GameManager transition;
+    //public GameManager transition;
     public UIController ui;
     //public Rigidbody2D rb;
 
     public int key = 0;
-
-
-    void Awake()
-    {
-        DontDestroyOnLoad(this.gameObject);
-    }
 
     void Start()
     {
@@ -47,6 +41,7 @@ public class PlayerController : MonoBehaviour
             rb = this.GetComponent<Rigidbody2D>();
         }
         */
+        
         if(hp == null)
         {
             hp = this.GetComponent<PlayerHealth>();
@@ -59,7 +54,7 @@ public class PlayerController : MonoBehaviour
         save = this.GetComponent<PlayerSaveAndLoad>();
         //this means it's on the same object!!!
         //if script function is on another object you have to find the other object then the script
-        transition = GameObject.Find("Game Manager").GetComponent<GameManager>();
+        //transition = GameObject.Find("Game Manager").GetComponent<GameManager>();
 
         /*
         rb.velocity = Vector2.zero;                 //set speed to zero
@@ -96,19 +91,29 @@ public class PlayerController : MonoBehaviour
             //taking damage
         }
 
+        if(other.gameObject.CompareTag("enemyAreaTransition"))
+        {
+            Debug.Log("running transition");
+            UnityEngine.SceneManagement.SceneManager.LoadScene(sceneBuildIndex:3);
+            //transition.Transition();
+            //load next scene
+        }
+        if(other.gameObject.CompareTag("bossAreaTransition"))
+        {
+            Debug.Log("running transition");
+            UnityEngine.SceneManagement.SceneManager.LoadScene(sceneBuildIndex:4);
+        }
+        if(other.gameObject.CompareTag("startingAreaTransition"))
+        {
+            Debug.Log("running transition");
+            UnityEngine.SceneManagement.SceneManager.LoadScene(sceneBuildIndex:2);
+        }
+
         /*
         if(other.gameObject.CompareTag("Checkpoint"))
         {
             //call the save function
             save.Save();
-        }
-
-        if(other.gameObject.CompareTag("enemyAreaTransition"))
-        {
-            Debug.Log("running transition");
-            UnityEngine.SceneManagement.SceneManager.LoadScene(sceneBuildIndex:1);
-            transition.Transition();
-            //load next scene
         }
         /*
         else if(other.gameObject.CompareTag(""))

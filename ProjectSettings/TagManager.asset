@@ -8,6 +8,12 @@ TagManager:
   - enemyArea
   - enemyAreaTransition
   - Enemy
+  - finalAreaTransition
+  - startingAreaTransition
+  - bossAreaTransition
+  - BossHealth
+  - StartPosition
+  - Boss
   layers:
   - Default
   - TransparentFX
@@ -18,7 +24,7 @@ TagManager:
   - Post Processing
   - Enemies
   - Obstacles
-  - 
+  - Boss
   - 
   - 
   - 

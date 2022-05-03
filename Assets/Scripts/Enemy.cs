@@ -7,7 +7,9 @@ public class Enemy : MonoBehaviour
     public Animator animator;
 
     public int maxHealth = 100;
-    int currentHealth;
+    public int currentHealth;
+
+    public GameObject deathEffect;
 
     // Start is called before the first frame update
     void Start()
@@ -31,12 +33,15 @@ public class Enemy : MonoBehaviour
     void Die()
     {
         Debug.Log("Enemy died!");
+        Instantiate(deathEffect, transform.position, Quaternion.identity);
 
         //die anaimation
         //animator.SetBool("IsDead", true);
 
-        //disable the enemy
+        /*disable the enemy
         GetComponent<Collider2D>().enabled = false;
         this.enabled = false;
+        */
+        Destroy(this.gameObject);
     }
 }
