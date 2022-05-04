@@ -69,7 +69,7 @@ public class PlayerController : MonoBehaviour
         {
             if(hp.mana > 0)
             {
-                hp.ChangeMana(-33);
+                hp.ChangeMana(-25);
                 hp.ChangeHealth(+20);
             }
         }
@@ -87,7 +87,7 @@ public class PlayerController : MonoBehaviour
         if(other.gameObject.CompareTag("Enemy"))
         {
             Debug.Log("I'm hurt!"); 
-            hp.ChangeHealth(-20);
+            hp.ChangeHealth(-10);
             //taking damage
         }
 
@@ -108,6 +108,17 @@ public class PlayerController : MonoBehaviour
             Debug.Log("running transition");
             UnityEngine.SceneManagement.SceneManager.LoadScene(sceneBuildIndex:2);
         }
+        if(other.gameObject.CompareTag("finalAreaTransition"))
+        {
+            Debug.Log("running transition");
+            UnityEngine.SceneManagement.SceneManager.LoadScene(sceneBuildIndex:6);
+        }
+        if(other.gameObject.CompareTag("theEnd"))
+        {
+            Debug.Log("running transition");
+            UnityEngine.SceneManagement.SceneManager.LoadScene(sceneBuildIndex:7);
+        }
+
 
         /*
         if(other.gameObject.CompareTag("Checkpoint"))

@@ -6,13 +6,21 @@ using UnityEngine.UI;
 public class HealthBarTrigger : MonoBehaviour
 {
     public Slider slider;
+    public GameObject ui;
 
     void Awake()
     {
+        if(ui == null)
+        {
+            ui = GameObject.FindWithTag("UI");
+        }
         if(slider == null)
         {
-            slider = GameObject.FindWithTag("BossHealth").GetComponent<Slider>();
+            //slider = ui.GetComponent<Slider>();
+            slider = ui.transform.Find("BossHealth").GetComponent<Slider>();
+            Debug.Log("finding health bar");
         }
+        
     }
 
     // Start is called before the first frame update

@@ -32,7 +32,7 @@ public class BossHealth : MonoBehaviour
 		}
 
 
-		if (currentHealth <= 200)
+		if (currentHealth <= 400)
 		{
 			GetComponent<Animator>().SetBool("IsEnraged", true);
 		}
@@ -40,14 +40,19 @@ public class BossHealth : MonoBehaviour
 		if (currentHealth <= 0)
 		{
 			Die();
+			DeleteHealthBar();
 		}
+	}
+
+	void DeleteHealthBar()
+	{
+		GetComponent<HealthBar>().DeleteHealth();
 	}
 
 	void Die()
 	{
 		Instantiate(deathEffect, transform.position, Quaternion.identity);
-		Destroy(this.gameObject);
-		bar.GetComponent<HealthBar>().Defeat();
+		GetComponent<HealthBar>().Defeat();
 	}
 
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerCombat : MonoBehaviour
 {
     public Animator animator;
+    public GameObject hitEffect;
     
     public Transform attackPoint;
     public LayerMask enemyLayers;
@@ -44,6 +45,7 @@ public class PlayerCombat : MonoBehaviour
             Debug.Log("We hit " + enemy.name);
 
             enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
+            Instantiate(hitEffect, attackPoint.position, Quaternion.identity);
         }
         foreach(Collider2D boss in hitBoss)
         {

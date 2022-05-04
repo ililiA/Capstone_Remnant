@@ -58,7 +58,8 @@ public class PlayerHealth : MonoBehaviour
 	void Die()
 	{
         //Destroy(this.gameObject);
-		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        ChangeHealth(+200);
+		UnityEngine.SceneManagement.SceneManager.LoadScene(sceneBuildIndex:5);
 	}
 
     public void ChangeHealth(int byAmount)
@@ -85,6 +86,11 @@ public class PlayerHealth : MonoBehaviour
     public void ChangeMana(int byAmount)
     {
         mana += byAmount;
+        
+        if(mana > 100)
+        {
+            mana = 100;
+        }
 
         ui.SetManaSlider(mana);
     }

@@ -7,15 +7,28 @@ public class HealthBar : MonoBehaviour
 {
 	public BossHealth bossHealth;
 	public Slider slider;
+    public GameObject ui;
     //public GameObject trigger;
 
     //slider.SetActive(true);
 
     void Awake()
     {
+        /*
         if(slider == null)
         {
             slider = GameObject.FindWithTag("BossHealth").GetComponent<Slider>();
+        }
+        */
+        if(ui == null)
+        {
+            ui = GameObject.FindWithTag("UI");
+        }
+        if(slider == null)
+        {
+            //slider = ui.GetComponent<Slider>();
+            slider = ui.transform.Find("BossHealth").GetComponent<Slider>();
+            Debug.Log("finding health bar");
         }
     }
 
@@ -32,6 +45,13 @@ public class HealthBar : MonoBehaviour
 
     public void Defeat()
     {
+        //Destroy(slider.gameObject);
+        Destroy(this.gameObject);
+        Debug.Log("defeated boss");
+    }
+    public void DeleteHealth()
+    {
         Destroy(slider.gameObject);
+        Debug.Log("deleting health bar");
     }
 }

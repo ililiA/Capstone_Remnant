@@ -5,7 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public Animator animator;
-
+    
     public int maxHealth = 100;
     public int currentHealth;
 
@@ -27,21 +27,28 @@ public class Enemy : MonoBehaviour
         if(currentHealth <= 0)
         {
             Die();
+            Effects();
         }
     }
 
     void Die()
     {
         Debug.Log("Enemy died!");
-        Instantiate(deathEffect, transform.position, Quaternion.identity);
+        //Instantiate(deathEffect, transform.position, Quaternion.identity);
 
         //die anaimation
         //animator.SetBool("IsDead", true);
 
-        /*disable the enemy
+        //disable the enemy
         GetComponent<Collider2D>().enabled = false;
         this.enabled = false;
-        */
+        
         Destroy(this.gameObject);
+        Destroy(transform.parent.gameObject);
+    }
+
+    void Effects()
+    {
+        Instantiate(deathEffect, transform.position, Quaternion.identity);
     }
 }

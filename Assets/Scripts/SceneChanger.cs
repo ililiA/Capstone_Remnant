@@ -5,7 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class SceneChanger : MonoBehaviour
 {
-    //[SerializeField] int scene;
+    DisableObjects disabledObjects;
+
+    void Awake()
+    {
+        disabledObjects = GameObject.Find("Destroy").GetComponent<DisableObjects>();
+    }
 
     public void StartGame()
     {
@@ -25,6 +30,7 @@ public class SceneChanger : MonoBehaviour
     }
     public void Retry()
     {
+        disabledObjects.GetComponent<DisableObjects>().Enable();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 }
