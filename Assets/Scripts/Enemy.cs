@@ -11,6 +11,13 @@ public class Enemy : MonoBehaviour
 
     public GameObject deathEffect;
 
+    [Header("Audio")]
+    
+    public AudioSource aud;
+    public AudioClip enemyHurt;
+    [Range(0f, 1f)]
+    public float volume = .5f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +27,8 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
+
+        aud.PlayOneShot(enemyHurt);
 
         //Play hurt animation
         animator.SetTrigger("Hurt");
@@ -50,5 +59,6 @@ public class Enemy : MonoBehaviour
     void Effects()
     {
         Instantiate(deathEffect, transform.position, Quaternion.identity);
+        //aud.PlayOneShot(enemyDead);
     }
 }

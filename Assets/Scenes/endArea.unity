@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.55794877, g: 0.6401724, b: 0.7571807, a: 1}
+  m_IndirectSpecularColor: {r: 0.5580108, g: 0.64011276, b: 0.757107, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -926,8 +926,8 @@ GameObject:
   - component: {fileID: 1910062651}
   - component: {fileID: 1910062650}
   m_Layer: 0
-  m_Name: BossAreaCollider
-  m_TagString: Untagged
+  m_Name: Credits trigger
+  m_TagString: credits
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1213,7 +1213,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5567920893051180668, guid: 693c2a03ca959334b81e17c95c015313, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5567920893051180671, guid: 693c2a03ca959334b81e17c95c015313, type: 3}
       propertyPath: m_RootOrder

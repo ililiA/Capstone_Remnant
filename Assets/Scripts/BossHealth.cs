@@ -13,6 +13,15 @@ public class BossHealth : MonoBehaviour
 
 	public bool isInvulnerable = false;
 	HealthBar bar;
+	/*
+
+	[Header("Audio")]
+    
+    public AudioSource aud;
+    public AudioClip bossHurt;
+    [Range(0f, 1f)]
+    public float volume = .5f;
+	*/
 
 	void Start()
     {
@@ -29,6 +38,7 @@ public class BossHealth : MonoBehaviour
 		else
 		{
 			currentHealth -= damage;
+			//aud.PlayOneShot(bossHurt);
 		}
 
 

@@ -8,6 +8,7 @@ public class DestroyObjects : MonoBehaviour
     public GameObject UI;
     public GameObject gameManager;
     public GameObject eventSystem;
+    public GameObject BGM;
 
     void Awake()
     {
@@ -28,6 +29,10 @@ public class DestroyObjects : MonoBehaviour
         {
             eventSystem = GameObject.FindWithTag("ES");
         }
+        if(BGM == null)
+        {
+            BGM = GameObject.FindWithTag("music");
+        }
 
     }
     // Start is called before the first frame update
@@ -37,10 +42,12 @@ public class DestroyObjects : MonoBehaviour
         Destroy(UI);
         Destroy(gameManager);
         Destroy(eventSystem);
+        Destroy(BGM);
     
         player.SetActive(false);
         UI.SetActive(false);
         gameManager.SetActive(false);
         eventSystem.SetActive(false);
+        BGM.SetActive(false);
     }
 }

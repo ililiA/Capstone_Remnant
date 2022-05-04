@@ -29,4 +29,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/endArea.unity
     guid: cfecf8a107a46194088d01f271e3a3c1
+  - enabled: 1
+    path: Assets/Scenes/startingArea_NoPlayer.unity
+    guid: d0c20f293e1cb3e4390513831b5368b9
+  - enabled: 1
+    path: Assets/Scenes/openingCutscene.unity
+    guid: f7cec900ed86dd746bdb678612f536f5
+  - enabled: 1
+    path: Assets/Scenes/creditsCutscene.unity
+    guid: 8bcaa7c3d7c8c8f4cafcbd4bf688010d
   m_configObjects: {}

@@ -13,6 +13,15 @@ public class PlayerMovement : MonoBehaviour
     bool jump = false;
     bool crouch = false;
 
+    [Header("Audio")]
+    
+    public AudioSource aud;
+    public AudioClip playerHurtClip;
+    public AudioClip hitEnemyClip;
+    public AudioClip enemyDeadClip;
+    [Range(0f, 1f)]
+    public float volume = .5f;
+
     // Update is called once per frame
     void Update()
     {

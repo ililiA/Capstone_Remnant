@@ -17,14 +17,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private PlayerHealth mana;
 
-    /*
-    [Header("Audio")]
-    
-    public AudioSource aud;
-    public AudioClip magicClip;
-    [Range(0f, 1f)]
-    public float magicVolume = .5f;
-    */
+    public float regenTimer = 1, damageRegenInterval = 5;
 
     private PlayerSaveAndLoad save;
     //public GameManager transition;
@@ -82,6 +75,25 @@ public class PlayerController : MonoBehaviour
         */
     }
 
+    void OnTriggerStay2D(Collider2D other)
+    {
+        if(other.gameObject.CompareTag("BossStay"))
+        {
+            Debug.Log("I'm hurt!"); 
+            if(regenTimer > damageRegenInterval)
+            {
+                regenTimer = 0;
+                hp.ChangeHealth(-5);
+            }
+            else
+            {
+                regenTimer += Time.deltaTime;
+            }
+        }
+    }
+    
+    
+
     void OnTriggerEnter2D(Collider2D other)
     {
         if(other.gameObject.CompareTag("Enemy"))
@@ -89,6 +101,10 @@ public class PlayerController : MonoBehaviour
             Debug.Log("I'm hurt!"); 
             hp.ChangeHealth(-10);
             //taking damage
+        }
+        if(other.gameObject.CompareTag("BossStay"))
+        {
+            return;
         }
 
         if(other.gameObject.CompareTag("enemyAreaTransition"))
@@ -106,17 +122,17 @@ public class PlayerController : MonoBehaviour
         if(other.gameObject.CompareTag("startingAreaTransition"))
         {
             Debug.Log("running transition");
-            UnityEngine.SceneManagement.SceneManager.LoadScene(sceneBuildIndex:2);
+            UnityEngine.SceneManagement.SceneManager.LoadScene(sceneBuildIndex:7);
         }
         if(other.gameObject.CompareTag("finalAreaTransition"))
         {
             Debug.Log("running transition");
             UnityEngine.SceneManagement.SceneManager.LoadScene(sceneBuildIndex:6);
         }
-        if(other.gameObject.CompareTag("theEnd"))
+        if(other.gameObject.CompareTag("credits"))
         {
             Debug.Log("running transition");
-            UnityEngine.SceneManagement.SceneManager.LoadScene(sceneBuildIndex:7);
+            UnityEngine.SceneManagement.SceneManager.LoadScene(sceneBuildIndex:9);
         }
 
 

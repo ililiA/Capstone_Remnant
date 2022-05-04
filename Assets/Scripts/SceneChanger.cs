@@ -14,6 +14,10 @@ public class SceneChanger : MonoBehaviour
 
     public void StartGame()
     {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(sceneBuildIndex:8);
+    }
+    public void Skip()
+    {
         UnityEngine.SceneManagement.SceneManager.LoadScene(sceneBuildIndex:2);
     }
     public void MainMenu()

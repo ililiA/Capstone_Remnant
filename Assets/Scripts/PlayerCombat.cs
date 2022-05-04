@@ -17,6 +17,13 @@ public class PlayerCombat : MonoBehaviour
     public float attackRate = 2f;
     float nextAttackTime = 0f;
 
+    [Header("Audio")]
+    
+    public AudioSource aud;
+    public AudioClip playerAttack, bossHurt;
+    [Range(0f, 1f)]
+    public float volume = .5f;
+
     // Update is called once per frame
     void Update()
     {
@@ -35,6 +42,8 @@ public class PlayerCombat : MonoBehaviour
         //play attack animation
         animator.SetTrigger("Attack");
 
+        aud.PlayOneShot(playerAttack);
+
         //detect enemies in range of attack
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
         Collider2D[] hitBoss = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, bossLayers);
@@ -52,6 +61,8 @@ public class PlayerCombat : MonoBehaviour
             Debug.Log("We hit " + boss.name);
 
             boss.GetComponent<BossHealth>().TakeDamage(attackDamage);
+            Instantiate(hitEffect, attackPoint.position, Quaternion.identity);
+            aud.PlayOneShot(bossHurt);
         }
     }
 
